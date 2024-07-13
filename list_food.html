@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Food List</h2>
+  <ul>
+    {% for food in foods %}
+      <li>
+        {{ food.name }} - ${{ food.price }}
+        <a href="{% url 'food_detail' food.pk %}">Details</a>
+        <a href="{% url 'edit_food' food.pk %}">Edit</a>
+        <a href="{% url 'delete_food' food.pk %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
