@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Order Details</h2>
+  <p>Order ID: {{ order.id }}</p>
+  <p>Customer: {{ order.customer }}</p>
+  <p>Order Date: {{ order.orderdatetime }}</p>
+  <p>Payment Mode: {{ order.paymentmode }}</p>
+  <h3>Order Items</h3>
+  <ul>
+    {% for item in order_items %}
+      <li>{{ item.food.name }} - {{ item.quantity }} x ${{ item.food.price }} = ${{ item.quantity * item.food.price }}</li>
+    {% endfor %}
+  </ul>
+  <p>Total Price: ${{ total_price }}</p>
+  <a
