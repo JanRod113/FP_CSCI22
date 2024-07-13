@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Add Order</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ order_form.as_p }}
+    <h3>Order Items</h3>
+    {{ order_item_forms.management_form }}
+    {% for form in order_item_forms %}
+      {{ form.as_p }}
+    {% endfor %}
+    <button type="submit">Add Order</button>
+  </form>
+{% endblock %}
